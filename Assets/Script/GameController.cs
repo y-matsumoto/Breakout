@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     public UnityEngine.UI.Text scoreText;
+    public GameObject winnerTextObject;
+
     // Use this for initialization
     void Start () {
 		
@@ -14,5 +16,10 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		int count = GameObject.FindGameObjectsWithTag ("Item").Length;
         scoreText.text = count.ToString();
-	}
+
+        if (count == 0)
+        {
+            winnerTextObject.SetActive(true);
+        }
+    }
 }
